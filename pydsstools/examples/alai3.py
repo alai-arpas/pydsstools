@@ -6,7 +6,8 @@ import pandas as pd
 
 dss_file = r"f:\varie\dss\xga_risultati.dss"
 excel_file = r"..\data_xga\risultati.xlsx"
-#excel_file = r"..\data_xga\pluvio_dettaglio.xlsx"
+dss_file = r"f:\varie\dss\xga_pluvio.dss"
+excel_file = r"..\data_xga\pluvio_dettaglio.xlsx"
 
 
 def read_xls():
@@ -23,6 +24,7 @@ def genera_path(codice):
     codice_c = codice
     col_d = "d"
     intervallo_e = "15MINUTES"
+    intervallo_e = "1MINUTES"
     pathname = f"/{tipo_a}/{anno_b}/{codice_c}/{col_d}/{intervallo_e}/FIXED/"
     return pathname
 
@@ -38,6 +40,7 @@ def write_to_dss(pathName, inizio, valori):
         tsc.units = "MM"
         tsc.type = "PER-CUM"
         tsc.interval = 15
+        tsc.interval = 1
         tsc.values = valori
         tsc.numberValues = len(tsc.values)
         #fid.deletePathname(tsc.pathname)
